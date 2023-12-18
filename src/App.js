@@ -1,11 +1,11 @@
 import Main from "./pages/main";
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Login from "./pages/Login";
 import AddPage from "./pages/AddPage";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import RegisterPage from "./pages/RegisterPage";
+import Voiti from "./pages/Voiti";
 function App() {
     return (
         <div className="App">
@@ -15,7 +15,7 @@ function App() {
                 <Route path={'/register'} element = {<RegisterPage/>}/>
                 <Route path={'/addCard'} element = {<AddPage/>}/>
                 <Route path={'/search'} element = {<SearchPage/>}/>
-                <Route path={'/login'} element = {<Login/>}/>
+                <Route path={'/login'} element = {<Voiti/>}/>
             </Routes>
 
         </div>

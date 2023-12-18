@@ -1,6 +1,7 @@
 import React from "react";
 import logo from '../image/logo.jpg'
 import { Link } from 'react-router-dom';
+import QuickSearch from "../components/QuickSearch";
 const Header = ()=>{
     return (
         <div>
@@ -17,7 +18,7 @@ const Header = ()=>{
                                 <Link to={'/'} className="nav-link" aria-current="page" >Главная</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={'profile'} className="nav-link" >Личный кабинет</Link>
+                                <Link to={'/profile'} className="nav-link" >Личный кабинет</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={'/register'} className="nav-link">Регистрация</Link>
@@ -32,13 +33,11 @@ const Header = ()=>{
                                 <Link to={'/login'} className="nav-link" >Вход</Link>
                             </li>
                         </ul>
-                        <form className="d-flex">
-                            <input className="form-control me-2" type="search" list="pets" placeholder="Поиск" aria-label="Search"/>
-                                <button className="btn btn-primary" onClick="">Поиск</button>
-                        </form>
+                        <QuickSearch/>
                     </div>
                 </div>
             </nav>
+
         </div>
     );
 };

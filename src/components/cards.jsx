@@ -1,48 +1,30 @@
-
-import img2 from '../image/2.jpg'
-import React, { useState } from "react";
+import React from 'react';
 
 const Cards = (props) => {
-    const [showForm, setShowForm] = useState(false);
-
-    const handleShowForm = () => {
-        setShowForm(true);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Обработка отправки формы
-        // Ваши дальнейшие действия при отправке формы...
-    };
-
-    return (
+    return(
         <div className="col">
             <div className="card h-100">
-                <img src={img2} className="card-img-top" alt="..." />
+                <img src={'https://pets.сделай.site'+props.data.photos} className="card-img-top wwww" style={{"height":"450px"}} alt="..."/>
                 <div className="card-body ft">
                     <div>
                         <h5 className="card-title">{props.data.name}</h5>
-                        <p className="card-text">
-                            Район: {props.data.raion}. Найден {props.data.date}. Вид:{" "}
-                            {props.data.kind}.
-                        </p>
+                        <p className="card-text">id: {props.data.id}</p>
+                        <p className="card-text">Телефон: {props.data.phone}.</p>
+                        <p className="card-text">Имя: {props.data.name}</p>
+                        <p className="card-text">Вид: {props.data.kind}</p>
+                        <p className="card-text">Описание:{props.data.description}</p>
+                        <p className="card-text">Чип:{props.data.mark}</p>
+                        <p className="card-text">Район:{props.data.district}</p>
+                        <p className="card-text">Дата:{props.data.date}</p>
                     </div>
-                    <div>
-                        <button className="btn btn-primary ff" onClick={handleShowForm}>
-                            Подробнее
-                        </button>
-                    </div>
+
+                        <div><button className="btn btn-primary ff m-auto" >Подробнее</button></div>
                 </div>
             </div>
-
-            {showForm && (
-                <form onSubmit={handleSubmit}>
-                    {/* Здесь размещайте необходимые поля формы */}
-                </form>
-            )}
         </div>
     );
 };
+
 
 export default Cards;
 
