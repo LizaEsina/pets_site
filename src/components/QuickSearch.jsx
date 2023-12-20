@@ -12,7 +12,7 @@ const QuickSearch = () => {
     const submitSearch = (e) => {
         e.preventDefault()
         console.log(searchTerm);
-        navigate("/search", { state: { query: searchTerm } }); // Передаем объект
+        navigate("/search", { state: { query: searchTerm } });
     };
 
     const onChange = (e) => {
@@ -58,7 +58,8 @@ const QuickSearch = () => {
                 value={searchTerm}
                 onChange={onChange}
             />
-            <button className="btn btn-outline-light" type="submit">Поиск</button>
+            <button className="btn btn-outline-primary" type="submit">Поиск</button>
+
         </form>
     );
 }
