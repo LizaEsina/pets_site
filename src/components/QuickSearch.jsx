@@ -1,18 +1,20 @@
-import { useState } from "react";
+import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { QuickSearchRequest } from "./requests";
 
 let attempts = 0
 
 const QuickSearch = () => {
+
     const [searchTerm, setSearchTerm] = useState('');
     const [card, setCard] = useState({ data: { orders: [] } })
     const navigate = useNavigate();
 
+
     const submitSearch = (e) => {
         e.preventDefault()
         console.log(searchTerm);
-        navigate("/search", { state: { query: searchTerm } }); // Передаем объект
+        navigate("/search", { state: { query: searchTerm } });
     };
 
     const onChange = (e) => {
@@ -58,7 +60,8 @@ const QuickSearch = () => {
                 value={searchTerm}
                 onChange={onChange}
             />
-            <button className="btn btn-outline-light" type="submit">Поиск</button>
+            <button className="btn btn-outline-primary" type="submit">Поиск</button>
+
         </form>
     );
 }

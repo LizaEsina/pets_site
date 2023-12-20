@@ -3,13 +3,12 @@ import Footer from "../components/footer";
 import React, { useRef } from 'react';
 const AddP = ()=>{
     let blocks = useRef();
-
     function dobav(e) {
         e.preventDefault();
 
-        var formdata = new FormData(document.getElementById("dobav"));
+        let formdata = new FormData(document.getElementById("dobav"));
 
-        var requestOptions = {
+        let requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
@@ -19,7 +18,7 @@ const AddP = ()=>{
             .then(response => response.status)
             .then(result => {
                 console.log(result);
-                if (result == 200) {
+                if (result === 200) {
                     let message = 'Вы успешно выложили объявление!!!';
                     blocks.current.innerText = message;
                     blocks.current.style.background = "#34C924"
@@ -36,6 +35,7 @@ const AddP = ()=>{
     return(
         <div>
             <Header/>
+            <h2 className="text-center text-white bg-primary m-2">Добавить объявления</h2>
             <form className="contei w-50 m-auto p-5" id="dobav"  noValidate onSubmit={dobav} >
                 <label htmlFor="inputA">Ваше имя</label>
                 <input type="text" className="form-control" id="inputA" required name="name" />

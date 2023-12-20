@@ -1,8 +1,47 @@
-import React from "react";
+import React, {useState} from "react";
 import logo from '../image/logo.jpg'
 import { Link } from 'react-router-dom';
 import QuickSearch from "../components/QuickSearch";
 const Header = ()=>{
+
+    let [card, setCard]=useState([]);
+
+    let [query, setQuery]=useState('');
+
+    const send=()=>{
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://pets.сделай.site/api/search?query="+query, requestOptions)
+            .then(response => response.json())
+            .then(result => {console.log(result)
+
+
+                let data=result.data.orders.map((item)=>item.description)
+                let set=new Set(data)
+                let uniq=Array.from(set)
+
+                data=uniq.map((value, index)=><option value={value} key={value}></option>)
+
+
+                setCard(data)
+                console.log(card)
+            })
+
+
+
+            .catch(error => console.log('error', error));
+    }
+
+    const search = (e) => {
+        setQuery(e.target.value)
+
+        if (query.length>2) setTimeout(send, 1000);
+    }
+
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-">
@@ -34,6 +73,7 @@ const Header = ()=>{
                             </li>
                         </ul>
                         <QuickSearch/>
+
                     </div>
                 </div>
             </nav>
